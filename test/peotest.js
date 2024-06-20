@@ -67,7 +67,7 @@ if (typeof $response == "undefined") {
     'DHWaterMarkManager':{ name: 'pro_lt', id: 'com.tk.client.lifetime'},//6.20
     
     'XBListeningEnglish':{ name: 'pro_lt', id: 'com.tk.client.lifetime'},
-    'FretTrainer':{ name: 'pro', id: 'frettrainer.sub.yearly.pro'},//5.7
+    'FretTrainer':{ name: '$rc_annual', id: 'com.overdesigned.incognito.lifetime'},//5.7
     '%E9%B2%B8%E8%90%BD%E6%96%87%E6%A1%88':{ name: 'vip', id: 'jl_year'},//2024.5.6
     'PeachTree':{ name: 'GoldMember', id: 'LifetimeGoldMembership'},//2024.5.5
     'No%20Fusion':{ name: 'LivePhoto', id: 'com.grey.livephoto.reference.price'},//2024.5.5
