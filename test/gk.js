@@ -8,7 +8,7 @@ download：商店版本15.3.5.2
 
 
 [rewrite_local]
-^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/gk
+^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/gk.js
 
 
 [MITM]
