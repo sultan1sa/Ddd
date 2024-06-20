@@ -1,78 +1,75 @@
-项目名称：opencat
+Name：browser teak + 
 
-**************************************
+download：商店版本15.3.5.2
+
+
 
 [rewrite_local]
-^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/pro.js
-^https:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/pro.js
-^https?:\/\/app-measurement\.com\/config\/app url reject
-^https?:\/\/firestore\.googleapis\.com url reject
-
-[mitm]
-hostname = api.revenuecat.com, app-measurement.com, firestore.googleapis.com
-
-*************************************/
+^https?:\/\/api\.revenuecat\.com\/v1\/(subscribers\/[^\/]+$|receipts$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/pro.js
 
 
-const chxm1024 = {};
-const { requestBody } = $request;
-const headers = $request.headers;
-const chxm1023 = JSON.parse(typeof $response != "undefined" && $response.body || null);
-const ua = headers['User-Agent'] || headers['user-agent'];
-const bundle_id = headers['X-Client-Bundle-ID'] || headers['x-client-bundle-id'];
+[MITM]
+
+hostname = api.revenuecat.com
 
 
-const list = {
-	'OpenCat': { name: 'pro_lt', id: 'com.tk.client.lifetime', cm: 'sja' },  //opencat
+*/
 
-};
 
-try {
-  if (typeof $response == "undefined") {
-    delete headers["x-revenuecat-etag"];
-    delete headers["X-RevenueCat-ETag"];
-    chxm1024.headers = headers;
-  } else if (chxm1023 && chxm1023.subscriber) {
-    chxm1023.subscriber.subscriptions = com.tk.client.lifetime || {};
-    chxm1023.subscriber.entitlements = com.tk.client.lifetime || {};
-    let name,nameb,ids,idb,data;
-    for (const src of [list, bundle]) {
-     for (const i in src) {
-      const test = src === list ? ua : bundle_id;
-      if (new RegExp(`^${i}`, `i`).test(test)) {
-        if (src[i].cm.indexOf('sja') != -1) {
-          data = { "purchase_date": "2023-09-09T09:09:09Z", "expires_date": "2099-09-09T09:09:09Z" };
-        } else if (src[i].cm.indexOf('sjb') != -1) {    
-          data = { "purchase_date": "2023-09-09T09:09:09Z" };
-        }
-      ids = src[i].id;
-      name = src[i].name;
-      idb = src[i].idb;
-      nameb = src[i].nameb;
-      break;
+let obj = {
+  "request_date_ms": 1718926226877,
+  "request_date": "2024-06-20T23:30:26Z",
+  "subscriber": {
+    "non_subscriptions": {},
+    "first_seen": "2024-06-19T07:20:50Z",
+    "original_application_version": "1",
+    "other_purchases": {},
+    "management_url": "https://apps.apple.com/account/subscriptions",
+    "subscriptions": {
+      "com.tk.client.lifetime": {
+        "period_type": "normal",
+        "store": "app_store",
+        "purchase_date": "2023-09-09T09:09:09Z",
+        "product_identifier": "com.tk.client.lifetime",
+        "original_purchase_date": "2023-09-09T09:09:09Z",
+        "ownership_type": "PURCHASED"
+      },
+      "com.tk.client.yearly": {
+        "original_purchase_date": "2024-06-19T07:47:49Z",
+        "expires_date": "2025-06-19T07:47:47Z",
+        "is_sandbox": false,
+        "refunded_at": null,
+        "auto_resume_date": null,
+        "unsubscribe_detected_at": "2024-06-20T07:17:09Z",
+        "grace_period_expires_date": null,
+        "period_type": "normal",
+        "purchase_date": "2024-06-19T07:47:47Z",
+        "billing_issues_detected_at": null,
+        "ownership_type": "FAMILY_SHARED",
+        "store": "app_store",
+        "store_transaction_id": "503569520478030934"
       }
-     }
-    }
-    if (!name || !ids) {
-      data = { "purchase_date": "2023-09-09T09:09:09Z", "expires_date": "2099-09-09T09:09:09Z" };
-      name = 'pro';
-      ids = 'com.tk.client.lifetime';
-    } 
-    com.tk.client.lifetime[name] = Object.assign({}, data, { product_identifier: ids });
-    if (typeof nameb !== 'undefined' && nameb !== null) {
-      com.tk.client.lifetime[nameb] = Object.assign({}, data, { product_identifier: idb });
-    }
-    const subData = Object.assign({},data,{		"Author": "chxm1023",		"Telegram": "https://t.me/chxm1023",		"warning": "仅供学习，禁止转载或售卖",		"original_purchase_date": "2023-09-09T09:09:09Z",		"store_transaction_id" : "4900066666666666",		"period_type" : "trial",		"store": "app_store",		"ownership_type": "PURCHASED"	});
-    chxm1023.subscriber.subscriptions[ids] = subData;
-    if (typeof idb !== 'undefined' && idb !== null) {
-      com.tk.client.lifetime[idb] = subData;
-    }
-    chxm1024.body = JSON.stringify(chxm1023);
-    console.log('已操作成功🎉🎉🎉\n叮当猫の分享频道: https://t.me/chxm1023');
-  } 
-} catch(e) {
-  //执行失败
-  console.log('执行失败: '+ e.message); 
+    },
+    "entitlements": {
+      "pro": {
+        "grace_period_expires_date": null,
+        "purchase_date": "2024-06-19T07:47:47Z",
+        "product_identifier": "com.tk.client.yearly",
+        "expires_date": "2025-06-19T07:47:47Z"
+      },
+      "pro_lt": {
+        "product_identifier": "com.tk.client.lifetime",
+        "purchase_date": "2023-09-09T09:09:09Z"
+      }
+    },
+    "original_purchase_date": "2023-08-14T07:12:59Z",
+    "original_app_user_id": "$RCAnonymousID:4d29951568944a6bbd1f58478d458c1a",
+    "last_seen": "2024-06-20T07:17:09Z"
+  }
+}
+}
 }
 
-$done(chxm1024);
+
+
+$done({ body: JSON.stringify(obj), status: 200 });
