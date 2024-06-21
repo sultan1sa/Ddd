@@ -14,8 +14,8 @@ hostname = api.revenuecat.com
 const py996 = {};
 const py997 = JSON.parse(typeof $response != "undefined" && $response.body || null);
 
-const name = "om.tk.client.lifetime";
-const appid = "pro_lt";
+const name = "pro_lt";
+const appid = "om.tk.client.lifetime";
 
   
 if (typeof $response == "undefined") {
