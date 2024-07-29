@@ -3,7 +3,7 @@
 [rewrite_local]
 
 通用订阅解锁
-^https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-body subs.js
+^https:\/\/api\.revenuecat\.com\/v1\/(subscribers|receipts) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/incognito.js
 
 [mitm]
 hostname = api.revenuecat.com
