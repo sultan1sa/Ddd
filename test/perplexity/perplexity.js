@@ -1,10 +1,10 @@
 #!nameperplexity 
 #!descperplexity 
 **************************************
-
+ 
 [rewrite_local]
-^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/incognito2.js
-^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/incognito2.js
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/perplexity/perplexity.js
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/perplexity/perplexity.js
 
 [mitm]
 hostname = api.revenuecat.com
@@ -15,8 +15,8 @@ hostname = api.revenuecat.com
 const chxm1023 = {};
 const chxm1024 = JSON.parse(typeof $response != "undefined" && $response.body || null);
 
-const name = "unlock";
-const appid = "com.overdesigned.incognito.lifetime";
+const name = "$rc_annual";
+const appid = "pro_200_yr_1w_new";
 
 if (typeof $response == "undefined") {
   delete $request.headers["x-revenuecat-etag"];
