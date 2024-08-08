@@ -1,44 +1,46 @@
-/*
-圈X:
-#Gear解锁会员永久
-[rewrite_local]
-^https\:\/\/api.revenuecat.com\/v1\/subscribers(.+) url script-response-body https://raw.githubusercontent.com/ThorJsbox/QuanX/master/Rewrite_local/Gearpro.js
-[mitm]
-hostname = api.revenuecat.com,
-*/
+/*************************************
 
-var obj = JSON.parse($response.body);
-obj={
-	"request_date": "2020-06-05T11:54:41Z",
-	"request_date_ms": 1591358081473,
-	"subscriber": {
-		"entitlements": {
-			"pro": {
-				"expires_date": "2099-02-18T07:52:54Z",
-				"product_identifier": "com.circles.fin.premium.yearly",
-				"purchase_date": "2020-02-11T07:52:54Z"
-			}
-		},
-		"first_seen": "2020-05-29T07:59:41Z",
-		"last_seen": "2020-06-05T11:46:28Z",
-		"management_url": null,
-		"non_subscriptions": {},
-		"original_app_user_id": "RbhyxwVVYSgnnUEtme2444PjccJ3",
-		"original_application_version": "5",
-		"original_purchase_date": "2020-05-29T07:47:32Z",
-		"other_purchases": {},
-		"subscriptions": {
-			"com.circles.fin.premium.yearly": {
-				"billing_issues_detected_at": null,
-				"expires_date": "2099-02-18T07:52:54Z",
-				"is_sandbox": false,
-				"original_purchase_date": "2020-02-11T07:52:55Z",
-				"period_type": "normal",
-				"purchase_date": "2020-02-11T07:52:54Z",
-				"store": "app_store",
-				"unsubscribe_detected_at": null
-			}
-		}
-	}
+项目名称：情侣性爱游戏
+下载地址：https://t.cn/A6lB0WCV
+版本支持：1.2
+更新日期：2024-01-03
+脚本作者：chxm1023
+电报频道：https://t.me/chxm1023
+使用声明：⚠️仅供参考，🈲转载与售卖！
+
+**************************************
+
+[rewrite_local]
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/loon/incognito1.js
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/loon/incognito1.js
+
+[mitm]
+hostname = api.revenuecat.com
+
+*************************************/
+
+
+const chxm1023 = {};
+const chxm1024 = JSON.parse(typeof $response != "undefined" && $response.body || null);
+
+const name = "unlock";
+const appid = "com.overdesigned.incognito.lifetime";
+
+if (typeof $response == "undefined") {
+  delete $request.headers["x-revenuecat-etag"];
+  delete $request.headers["X-RevenueCat-ETag"];
+  chxm1023.headers = $request.headers;
+} else if (chxm1024 && chxm1024.subscriber) {
+  chxm1024.subscriber.subscriptions = chxm1024.subscriber.subscriptions || {};
+  chxm1024.subscriber.entitlements = chxm1024.subscriber.entitlements || {};
+  const data = {
+	"product_identifier": (appid),
+	"expires_date": "2099-09-09T09:09:09Z",
+	"purchase_date": "2022-09-09T09:09:09Z"
+	};
+  chxm1024.subscriber.entitlements[(name)] = (data);
+  chxm1024.subscriber.subscriptions[(appid)] = {  ...data,	"Author": "chxm1023",	"Telegram": "https://t.me/chxm1023",	"warning": "仅供学习，禁止转载或售卖",	"original_purchase_date": "2022-09-09T09:09:09Z",	"store": "app_store",	"ownership_type": "PURCHASED"};
+  chxm1023.body = JSON.stringify(chxm1024);
 }
-$done({body: JSON.stringify(obj)});
+
+$done(chxm1023);
