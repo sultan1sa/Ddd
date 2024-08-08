@@ -6,13 +6,12 @@
 更新日期：2024-01-03
 脚本作者：chxm1023
 电报频道：https://t.me/chxm1023
-使用声明：⚠️仅供参考，🈲转载与售卖！ 
-
+使用声明：⚠️仅供参考，🈲转载与售卖！
 **************************************
 
 [rewrite_local]
-^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/loon/incognito1.js
-^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/loon/incognito1.js
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-response-body https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/loon/incognito.js
+^https?:\/\/api\.revenuecat\.com\/.+\/(receipts$|subscribers\/?(.*?)*$) url script-request-header https://raw.githubusercontent.com/sultan1sa/Ddd/main/test/loon/incognito.js
 
 [mitm]
 hostname = api.revenuecat.com
